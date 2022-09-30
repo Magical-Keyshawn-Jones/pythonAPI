@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from .VideoGames import videoGamesRoute
+
 # Defining our Server
 server = FastAPI()
 

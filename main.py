@@ -26,7 +26,9 @@ server = FastAPI()
 while True:
     try:
         # connect = psycopg2.connect(host, database, user, password)
-        connect = psycopg2.connect(host = 'localHost', database = 'PYTHONAPI', user = 'killz', password = '2', cursor_factory = RealDictCursor)
+        connect = psycopg2.connect(host = 'localHost', 
+        database = 'PYTHONAPI', user = 'killz', password = '2', 
+        cursor_factory = RealDictCursor)
 
         # Cursor is used to interact the database
         cursor = connect.cursor()
@@ -131,3 +133,4 @@ def indexFinder(id):
     for y, x in enumerate(dataArray):
         if x['id'] == id:
             return y
+
