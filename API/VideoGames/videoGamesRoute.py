@@ -99,17 +99,6 @@ def delete(id: int):
 @router.put('/games/{id}')
 def change(id: int, payload: Message):
 
-    # This is a Tuple
-    # message = payload.title, payload.rating, payload.preOrdered, payload.comment, payload.excitement, payload.platform
-
-    # This is  List
-    # playing = [1,2,3,4]
-
-    # if payload.comment == None:
-    #     payload.comment = ''
-    # elif payload.excitement == None:
-    #     payload.excitement = ''
-
     cursor.execute(
         f""" UPDATE "Video_Games" SET  "Title" = '{payload.title}', "Rating" = '{payload.rating}', 
         "PreOrdered" = '{payload.preOrdered}', "Comment" = '{payload.comment}', "Excitement" = '{payload.excitement}', 
@@ -118,5 +107,3 @@ def change(id: int, payload: Message):
     connect.commit()
 
     return getId(id) 
-    # results = cursor.fetchone()
-    # return results
