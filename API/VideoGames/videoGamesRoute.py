@@ -46,6 +46,9 @@ class Message(BaseModel):
     excitement: Optional[str]
     platform: str
 
+class videoGameModel(BaseModel):
+    title: str
+
 # Defining our Router
 router = APIRouter()
 
@@ -69,6 +72,12 @@ def getAllTitles():
             duplicates.append(title)
     
     return noDuplicates
+
+@router.post('/games/titles/videoGame')
+def getGameByTitle(videoGame: videoGameModel):
+    cursor.execute(f""" SELECT * FROM "Video_Games" WHERE "Title" = '{videoGame.title}' """)
+    results = cursor.fetchall()
+    return results
 
 @router.get('/games/{id}')
 def getId(id: int):
